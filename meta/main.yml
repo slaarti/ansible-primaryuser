@@ -1,0 +1,19 @@
+---
+galaxy_info:
+  author: slaarti
+  description: Simple user creation and SSH auth key setting.
+  license: Unlicense
+  min_ansible_version: 1.2
+  platforms:
+  - name: EL
+    versions:
+    - all
+  - name: Ubuntu
+    versions:
+    - all
+  - name: Debian
+    versions:
+    - all
+  categories:
+  - system
+dependencies: []
