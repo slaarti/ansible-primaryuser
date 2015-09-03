@@ -3,3 +3,8 @@
   user: name={{username}} comment={{realname}} shell={{shell}}
         groups={{groups}} password={{password}}
   when: username != ""
+
+- name: Install SSH authorized keys.
+  authorized_key: user={{username}} key={{ item }}
+  with_items: "{{sshkeys}}"
+  when: username != "" and item != []
