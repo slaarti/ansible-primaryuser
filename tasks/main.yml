@@ -5,6 +5,6 @@
   when: username != ""
 
 - name: Install SSH authorized keys.
-  authorized_key: user={{username}} key={{ item }}
+  authorized_key: user={{username}} key="{{item}}"
   with_items: "{{sshkeys}}"
   when: username != "" and item != []
