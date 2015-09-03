@@ -1,6 +1,6 @@
 ---
 - name: Create the user.
-  user: name={{username}} comment={{realname}} shell={{shell}}
+  user: name={{username}} comment="{{realname}}" shell={{shell}}
         groups={{usergroups}} password={{password}}
   when: username != ""
 
