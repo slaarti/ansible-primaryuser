@@ -1,0 +1,6 @@
+---
+username: ""
+realname: ""
+password: ""
+shell: "/bin/bash"
+groups: "sudo"
