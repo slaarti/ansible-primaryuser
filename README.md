@@ -25,7 +25,7 @@ The user's crypted password.
 
 The user's shell.
 
-    groups: "sudo"
+    usergroups: "sudo"
 
 A comma-separated list of additional non-user-specific groups to add the
 user to. By default, gives `sudo` privileges. If you want that and
