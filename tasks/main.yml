@@ -1,0 +1,5 @@
+---
+- name: Create the user.
+  user: name={{username}} comment={{realname}} shell={{shell}}
+        groups={{groups}} password={{password}}
+  when: username != ""
