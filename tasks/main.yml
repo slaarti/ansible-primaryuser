@@ -1,7 +1,7 @@
 ---
 - name: Create the user.
   user: name={{username}} comment="{{realname}}" shell={{shell}}
-        groups={{usergroups}} password={{password}}
+        groups="{{usergroups|join(',')}}" password={{password}}
   when: username != ""
 
 - name: Install SSH authorized keys.
