@@ -4,6 +4,33 @@
         groups="{{usergroups|join(',')}}" password={{password}}
   when: username != ""
 
+- name: Create dot-ssh directory for user.
+  file:
+    path: "/home/{{ username }}/.ssh"
+    state: directory
+    owner: "{{ username }}"
+    group: "{{ username }}"
+    mode: "0700"
+  when: username != "" and (sshkey != {} or authkeys != [])
+
+- name: Set SSH private key.
+  copy:
+    dest: "/home/{{ username }}/.ssh/id_rsa"
+    owner: "{{ username }}"
+    group: "{{ username }}"
+    mode: "0600"
+    content: "{{ sshkey.private }}"
+  when: username != "" and sshkey != {}
+
+- name: Set SSH public key.
+  copy:
+    dest: "/home/{{ username }}/.ssh/id_rsa.pub"
+    owner: "{{ username }}"
+    group: "{{ username }}"
+    mode: "0644"
+    content: "{{ sshkey.public }}"
+  when: username != "" and sshkey != {}
+
 - name: Install SSH authorized keys.
   authorized_key: user={{username}} key="{{item}}"
   with_items: "{{authkeys}}"

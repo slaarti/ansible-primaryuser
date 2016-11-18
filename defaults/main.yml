@@ -4,4 +4,5 @@ realname: ""
 password: ""
 shell: "/bin/bash"
 usergroups: "sudo"
+sshkey: {}
 authkeys: []

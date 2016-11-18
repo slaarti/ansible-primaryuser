@@ -1,7 +1,7 @@
 # User Role
 
 Super simple ansible role to create a user on a system, and optionally
-provide SSH authorized keys.
+provide an SSH key pair and authorized keys.
 
 This is just basically a parameterized role wrapper around some built-in
 ansible modules.
@@ -30,6 +30,11 @@ The user's shell.
 A comma-separated list of additional non-user-specific groups to add the
 user to. By default, gives `sudo` privileges. If you want that and
 additional groups besides, make sure to include `sudo` in the list.
+
+    sshkey: {}
+
+An optional dictionary with `private` and `public` elements corresponding
+to the two halves of an SSH key pair for the user.
 
     authkeys: []
 
