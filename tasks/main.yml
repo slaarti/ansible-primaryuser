@@ -1,7 +1,11 @@
 ---
 - name: Create the user.
-  user: name="{{username}}" comment="{{realname}}" shell="{{shell}}"
-        groups="{{usergroups|join(',')}}" password="{{password}}"
+  user:
+    name: "{{username}}"
+    comment: "{{realname}}"
+    shell: "{{shell}}"
+    groups: "{{usergroups|join(',')}}"
+    password: "{{password}}"
   when: username != ""
 
 - name: Create dot-ssh directory for user.
@@ -32,6 +36,8 @@
   when: username != "" and sshkey != {}
 
 - name: Install SSH authorized keys.
-  authorized_key: user="{{username}}" key="{{item}}"
+  authorized_key:
+    user: "{{username}}"
+    key: "{{item}}"
   with_items: "{{authkeys}}"
   when: username != "" and item != []
