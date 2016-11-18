@@ -31,7 +31,7 @@ A comma-separated list of additional non-user-specific groups to add the
 user to. By default, gives `sudo` privileges. If you want that and
 additional groups besides, make sure to include `sudo` in the list.
 
-    sshkeys = []
+    authkeys = []
 
 A list of SSH authorized key contents. Load 'em up however you see fit.
 
